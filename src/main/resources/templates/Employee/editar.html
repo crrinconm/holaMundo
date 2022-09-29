@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="index">
+
+<body>
+<main layout:fragment="contenido">
+<!-- Formulario para actualizar nuevo usuario -->
+<form th:object="${employee}" th:action="@{/Employee/actualizarUsuario}" method="POST">
+    <div class="form-group py-4" style="margin: .4rem 0; width: 150%; max-width: 650px; margin: 0 auto;flex-direction: column;justify-content: center;align-items: center;"> <!-- Primera sesion-->
+        <h5 class="text-decoration-underline py-4 fw-semibold text-dark "> Usuarios </h5>
+        <div class="card bg-light px-5 py-2">
+
+        <h4 align="center"> Actualizar Usuario</h4>
+        <div>
+            <label for="name">
+                <h5> Nombre </h5>
+            </label>
+            <input type="hidden" name="id" th:value="${employee.id}" />
+
+            <input autocomplete="off" autofocus  id="name" name="name" required
+                   minlength="4" maxlength="8" size="10"
+                   placeholder="Escribe el nombre del usuario" type="text"
+                   class="form-control" th:value="${employee.name}">
+        </div>
+
+
+        <div>
+            <label for="email" >
+                <h5> Correo </h5>
+            </label>
+            <input autocomplete="off" autofocus  id="email" name="email"
+                   placeholder="Escribe el email" type="text" th:value="${employee.email}" class="form-control">
+        </div>
+
+        <div>
+            <label for="role">
+                <h5> Rol </h5>
+            </label>
+            <input autocomplete="off" autofocus  id="role" name="role"
+                   placeholder="Escribe el rol" type="text"
+                   class="form-control" th:value="${employee.role}">
+        </div>
+
+        <!-- El campo Telefono-->
+        <div>
+            <label for="phone">
+                <h5> Teléfono </h5>
+            </label>
+            <input type="hidden" id="idProfile" name="idProfile" th:value="${employee.profile.id}" />
+            <input type="hidden" id="idEnterprise" name="idEnterprise" th:value="${employee.enterprise.id}" />
+            <input autocomplete="off" autofocus  id="phone" name="phone"
+                   placeholder="Escribe el Telefono" type="text" th:value="${employee.profile.phone}"
+                   class="form-control">
+        </div>
+
+
+
+
+    <div class="container-fluid h-100 py-1">
+        <div class="row w-100 align-items-center">
+            <div class="col text-center">
+                <button class="btn btn-warning regular-button" type="submit"> Actualizar </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <!--<button class="btn btn-warning px-2" type="submit" style=" padding: .5em 1em; border:none; background: rgb(100,200,255); cursor: pointer;" >Ingresar</button>-->
+</form>
+
+</main>
+</body>
+</html>

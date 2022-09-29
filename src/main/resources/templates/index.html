@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <head th:replace="capas/encabezado :: encabezado"></head>
+    <title>Sistema de gestión</title>
+
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+
+<!-- Menú-->
+<nav th:replace="capas/navbar :: navbar"> </nav>
+<header>
+    <h3 align="center"> Sistema de gestión de Ingresos y Gastos</h3>
+</header>
+
+        <!-- Contenido de la aplicación-->
+
+<section>
+    <article style="margin: auto;">
+        <a href="http://localhost:8080/ingresosyegresos/"><img src="img/ingresos.jpg" alt="sitema de ingresos y egresos de una empresa" target="_blank" height="100px"/></a>
+    </article>
+
+    <article style="margin: auto;">
+        <a href="http://localhost:8080/Employee/users" /><img src="C:\Users\crist\OneDrive\Escritorio\irving.jpg" alt="mejor jugador de la nba target=" target="_blank" height="100px"/></a>
+    </article>
+
+    <article style="margin: auto;">
+        <a href="http://localhost:8080/empresas/"/><img src="C:\Users\crist\OneDrive\Documentos\ejercicios\src\main\resources\templates\equipotrabajo.jpg" alt="imagen3" target="_blank" height="100px"/></a>
+    </article>
+
+</section>
+
+<main layout:fragment="contenido" role="main" class="container"></main>
+
+
+
+
+
+    <!-- Pie de página-->
+    <footer th:replace="capas/pie :: pie"> </footer>
+</body>
+</html>

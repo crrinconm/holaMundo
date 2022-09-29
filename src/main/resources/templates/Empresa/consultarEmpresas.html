@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="index">
+
+<body>
+<main layout:fragment="contenido">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <table class=" table border-left border border-top table-sm table-striped round_table table-hover align-middle caption-top" style="border-radius: 10px;">
+                    <caption> <h4 class="text-decoration-underline py-3 fw-semibold text-dark "> Empresas </h4>
+                    </caption>
+                    <thead>
+                    <tr>
+                        <!-- Utilicé tres td, para que quede en el lado derecho debajo del último-->
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+
+
+                        <td  align="left">
+
+
+                            <a class="btn btn-info" disabled th:href="@{/Enterprise/nuevaEmpresa}"> Nueva Empresa <i
+                                    class="fa fa-edit"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <th> Nombre </th>
+                        <th> Documento </th>
+                        <th> Teléfono  </th>
+                        <th>         </th> <!--Creería que aún no corre, porque no es funcional los botones-->
+
+
+
+                    </tr>
+                    </thead>
+                    <!--Filas de la tabla-->
+                    <tbody>
+                    <!--IMPORTANTE. Dibuja las columnas por cada campo del objeto (almacenadas en supabase)-->
+                    <tr th:each="enterprise: ${listarEmpresas}">
+                        <!-- Esto se hace con el fin de que el las cree automaticas y no crearlas propias-->
+                        <td th:text="${enterprise.name}"></td>
+                        <td th:text="${enterprise.document}"></td>
+                        <td th:text="${enterprise.phone}"></td>
+
+
+                        <td>
+                            <form th:action="@{/Enterprise/eliminar}" method="post" >
+                                <input type="hidden" name="id" th:value="${enterprise.id}"/>
+                                <button type="submit" class="btn justify-content-md-end btn-secondary"> Eliminar <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+
+
+                        <td>
+                            <form th:action="@{/Enterprise/actualizar}" method="post" th:object="${enterprise}">
+                                <input type="hidden" name="id" th:value="${enterprise.id}" />
+                                <button type="submit" class="btn btn-dark"> Actualizar <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+</body>
+</html>

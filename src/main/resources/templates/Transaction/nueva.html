@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="index">
+
+<body>
+<main layout:fragment="contenido">
+    <!-- Formulario para guardar nuevo usuario -->
+    <form th:action="@{/Transaction/guardar}" th:object="${transaction}" method="post">
+        <div class="form-group py-4" style="margin: .4rem 0; width: 150%; max-width: 650px; margin: 0 auto;flex-direction: column;justify-content: center;align-items: center;"> <!-- Primera sesion-->
+            <h5 class="text-decoration-underline py-4 fw-semibold text-dark "> Ingresos y egresos </h5>
+            <div class="card bg-light px-5 py-2">
+
+                <h4 align="center"> Nueva Transacción </h4>
+                <div>
+                    <label for="amount">
+                        <h5> Monto </h5>
+                    </label>
+
+                    <input autocomplete="off" autofocus  id="amount" name="amount" required
+                           minlength="4" maxlength="8" size="10"
+                           placeholder="Escribe el monto" type="number"
+                           class="form-control">
+                </div>
+
+
+                <div>
+                    <label for="concept" >
+                        <h5> Concepto </h5>
+                    </label>
+                    <input autocomplete="off" autofocus  id="concept" name="concept"
+                           placeholder="Escribe el concepto" type="text"
+                           class="form-control">
+                </div>
+
+                <div>
+                    <label for="fecha">
+                        <h5> Fecha </h5>
+                    </label>
+                    <input autocomplete="off" autofocus  id="fecha" name="fecha"
+                           placeholder="Escribe la fecha" type="text"
+                           class="form-control">
+                </div>
+
+
+                <div class="container-fluid h-100 py-1">
+                    <div class="row w-100 align-items-center">
+                        <div class="col text-center">
+                            <input type="submit" class="btn btn-warning regular-button" value="Ingresar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<button class="btn btn-warning px-2" type="submit" style=" padding: .5em 1em; border:none; background: rgb(100,200,255); cursor: pointer;" >Ingresar</button>-->
+    </form>
+
+</main>
+</body>
+</html>
